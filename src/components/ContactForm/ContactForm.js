@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactSlice';
 import { useSelector } from 'react-redux';
-// hinport
+
 const schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.number().min(9).required(),
