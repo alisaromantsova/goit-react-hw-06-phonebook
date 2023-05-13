@@ -32,3 +32,13 @@
   /* text-align: center; */
   color: #084873;
 }
+.notfound {
+  text-decoration: underline;
+  text-align: center;
+  padding: 20px;
+  color: #084873;
+  /* display: block; */
+}
+.notfound:hover {
+  color: #3a92cd;
+}

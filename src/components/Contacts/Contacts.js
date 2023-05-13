@@ -25,6 +25,7 @@ export const Contacts = () => {
       setLink('/contacts');
     }
   }, [isOpen]);
+  console.log(value);
   return (
     <div className={css.container}>
       <Link className={css.filter} to={link} onClick={linkToggle}>
@@ -43,26 +44,33 @@ export const Contacts = () => {
 
       <Outlet />
       <h2 className={css.title}>Contacts</h2>
-      <ul className={css.list}>
-        <li className={css.header}>
-          <p className={css.point}>Name</p>
-          <p className={css.point}>Number</p>
-        </li>
-        {value
-          .filter(item =>
-            item.name.toLowerCase().includes(filter.toLowerCase())
-          )
-          .map(item => {
-            return (
-              <ContactItem
-                key={item.id}
-                name={item.name}
-                number={item.number}
-                id={item.id}
-              />
-            );
-          })}
-      </ul>
+      {value.length > 0 && (
+        <ul className={css.list}>
+          <li className={css.header}>
+            <p className={css.point}>Name</p>
+            <p className={css.point}>Number</p>
+          </li>
+          {value
+            .filter(item =>
+              item.name.toLowerCase().includes(filter.toLowerCase())
+            )
+            .map(item => {
+              return (
+                <ContactItem
+                  key={item.id}
+                  name={item.name}
+                  number={item.number}
+                  id={item.id}
+                />
+              );
+            })}
+        </ul>
+      )}
+      {value.length === 0 && (
+        <Link className={css.notfound} to="/">
+          Add your first contact
+        </Link>
+      )}
     </div>
   );
 };
