@@ -27,13 +27,27 @@ export const Contacts = () => {
   }, [isOpen]);
   return (
     <div className={css.container}>
-      <Link to={link} onClick={linkToggle}>
-        Filter
+      <Link className={css.filter} to={link} onClick={linkToggle}>
+        <svg
+          className={css.svg}
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          viewBox="0 0 25 25"
+        >
+          <title>filter</title>
+          <path d="M12 12l8-8v-4h-20v4l8 8v8l4-4v-4z"></path>
+        </svg>
       </Link>
 
       <Outlet />
-      <h2>Contacts</h2>
+      <h2 className={css.title}>Contacts</h2>
       <ul className={css.list}>
+        <li className={css.header}>
+          <p className={css.point}>Name</p>
+          <p className={css.point}>Number</p>
+        </li>
         {value
           .filter(item =>
             item.name.toLowerCase().includes(filter.toLowerCase())
