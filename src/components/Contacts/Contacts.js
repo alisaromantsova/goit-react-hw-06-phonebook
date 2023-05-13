@@ -3,7 +3,6 @@ import { ContactItem } from '../ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import { Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-// import { useSearchParams } from 'react-router-dom';
 
 export const Contacts = () => {
   const value = useSelector(state => state.contacts.contacts);
